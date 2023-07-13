@@ -5,10 +5,6 @@ class Video:
 
     def __init__(self, video_id: str):
         self.__video_id = video_id
-        self.__title = None
-        self.__url = None
-        self.__view_count = None
-        self.__like_count = None
         self.video_data()
 
     def __str__(self):
@@ -26,6 +22,10 @@ class Video:
             self.__like_count = int(video_data.get('statistics').get('likeCount'))
         except IndexError:
             print('Неверная ссылка!')
+            self.__title = None
+            self.__url = None
+            self.__view_count = None
+            self.__like_count = None
 
     @property
     def video_id(self):
